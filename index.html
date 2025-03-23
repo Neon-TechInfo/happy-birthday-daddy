@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Dad!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding: 50px;
+    }
+    #countdown {
+      font-size: 50px;
+      font-weight: bold;
+      color: #ff6347;
+    }
+    .tribute {
+      font-size: 24px;
+      margin-top: 30px;
+      color: #2e8b57;
+    }
+    .tribute img {
+      width: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    #birthdayVideo {
+      display: none;
+      margin-top: 30px;
+      width: 80%;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, Dad!</h1>
+
+  <!-- Countdown Timer -->
+  <div id="countdown"></div>
+    
+
+  <!-- Personal Tribute -->
+  <div class="tribute">
+    <p>Dear Dad,</p>
+    <p>Happy Birthday to the most amazing dad ever! You have always been there for me, and I feel so lucky to be your child. Thank you for your love, wisdom, and all the great memories we've shared. I can’t wait to celebrate you!</p>
+    <img src="https://files.catbox.moe/ts8w73.jpg">
+    <img src="https://files.catbox.moe/85ixjb.jpg">
+    <img src="https://files.catbox.moe/j1n97v.jpg">
+    <img src="https://files.catbox.moe/52v56l.jpg">
+  </div>
+
+  <script>
+    // Countdown Timer Script
+    const countdownDate = new Date("Mar 23, 2025 20:59:00").getTime();
+
+    const countdownFunction = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Happy Birthday, Dad!";
+        
+        // Show the video after countdown ends
+        document.getElementById("birthdayVideo").style.display = "block";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
